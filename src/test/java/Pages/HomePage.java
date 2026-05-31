@@ -13,16 +13,30 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public void clickOnSignupLogin() {
 
-        WebElement signupLoginButton = driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a"));
-        signupLoginButton.click();
+    public WebElement getSignupLoginButton() {
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a"));
+    }
+    public WebElement getLogoutButton() {
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a"));
+    }
+    public WebElement getProductsButton() {
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[2]/a"));
+    }
+
+
+
+
+    public void clickOnSignupLogin() {
+        getSignupLoginButton().click();
+    }
+
+    public void clickLogoutButton() {
+        getLogoutButton().click();
     }
 
     public void clickProductsButton() {
-
-        WebElement productsButton = driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[2]/a"));
-        productsButton.click();
+        getProductsButton().click();
     }
 
 

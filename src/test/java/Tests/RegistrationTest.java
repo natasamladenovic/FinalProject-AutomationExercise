@@ -2,6 +2,7 @@ package Tests;
 
 
 import Base.BaseTest;
+import Pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,7 +15,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test
-    public void userCanStartRegistration() {
+    public void userCanStartRegistration() throws InterruptedException {
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26@gmail.com");
@@ -35,6 +36,9 @@ public class RegistrationTest extends BaseTest {
         signupPage.clickCreateAccountButton();
         Assert.assertTrue(signupPage.getAccountCreatedMessage().isDisplayed());
         signupPage.clickContinueButton();
+        Thread.sleep(2000);
+        homePage.clickLogoutButton();
+        Assert.assertTrue(homePage.getSignupLoginButton().isDisplayed());
     }
 
     @Test

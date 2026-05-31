@@ -25,7 +25,6 @@ public class CartTest extends BaseTest {
         productsPage.clickViewProductButton();
         productsPage.clickAddToCartButton();
         productsPage.clickViewCartButton();
-
     }
 
     @Test

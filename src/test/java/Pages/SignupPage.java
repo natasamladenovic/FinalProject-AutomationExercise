@@ -13,16 +13,18 @@ public class SignupPage {
         this.driver = driver;
     }
 
+    //----------------------Signup Page-----------------------//
+
     public void enterName(String name) {
 
         WebElement nameField = driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[2]"));
-        nameField.sendKeys("Jane Doe");
+        nameField.sendKeys(name);
     }
 
     public void enterEmail(String email) {
 
         WebElement emailField = driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));
-        emailField.sendKeys("janedoeqa26@gmail.com");
+        emailField.sendKeys(email);
     }
 
     public void clickSignupButton() {
@@ -33,13 +35,14 @@ public class SignupPage {
 
     //--------------Enter Account Information-------------------//
 
+    //Geteri//
+
     public WebElement getMrsRadioButton() {
         return driver.findElement(By.id("id_gender2"));
     }
 
-    public WebElement getPasswordField() {
-        return driver.findElement(By.id("password"));
-    }
+    public WebElement getPasswordField() {return driver.findElement(By.id("password"));}
+
     public WebElement getDayDropDown() {
         return driver.findElement(By.id("days"));
     }
@@ -52,14 +55,15 @@ public class SignupPage {
         return driver.findElement(By.id("years"));
     }
 
+    //Metode//
 
     public void clickMrsRadioButton() {
+
         getMrsRadioButton().click();
     }
-
     public void inputPassword(String password) {
         getPasswordField().clear();
-        getPasswordField().sendKeys("Testqa91!");
+        getPasswordField().sendKeys(password);
     }
     public void selectDay(String day) {
         Select select = new Select(getDayDropDown());
@@ -75,6 +79,8 @@ public class SignupPage {
     }
 
     //-------------Address Information-----------------//
+
+    //Geteri//
 
     public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
@@ -108,44 +114,46 @@ public class SignupPage {
 
     public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
+    //Metode//
 
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
-        getFirstNameField().sendKeys("Jane");
+        getFirstNameField().sendKeys(firstName);
     }
     public void inputLastName(String lastName) {
         getLastNameField().clear();
-        getLastNameField().sendKeys("Doe");
+        getLastNameField().sendKeys(lastName);
     }
     public void inputAddress(String address) {
         getAddressField().clear();
-        getAddressField().sendKeys("Cornelia St. 26");
+        getAddressField().sendKeys(address);
     }
     public void selectCountry(String country) {
         Select select = new Select(getCountryDropDown());
-        select.selectByVisibleText("United States");
+        select.selectByVisibleText(country);
     }
     public void inputState(String state) {
         getStateField().clear();
-        getStateField().sendKeys("New York");
+        getStateField().sendKeys(state);
     }
     public void inputCity(String city) {
         getCityField().clear();
-        getCityField().sendKeys("New York");
+        getCityField().sendKeys(city);
     }
     public void inputZipcode(String zipcode) {
         getZipcodeField().clear();
-        getZipcodeField().sendKeys("10001");
+        getZipcodeField().sendKeys(zipcode);
     }
     public void inputMobileNumber(String mobileNumber) {
         getMobileNumberField().clear();
-        getMobileNumberField().sendKeys("+1(646)555-3890");
+        getMobileNumberField().sendKeys(mobileNumber);
     }
     public void clickCreateAccountButton() {
+
         getCreateAccountButton().click();
     }
-
     public void clickContinueButton() {
+
         getClickContinueButton().click();
     }
 
