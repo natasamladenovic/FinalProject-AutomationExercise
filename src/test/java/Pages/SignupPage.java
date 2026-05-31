@@ -40,7 +40,6 @@ public class SignupPage {
     public WebElement getPasswordField() {
         return driver.findElement(By.id("password"));
     }
-
     public WebElement getDayDropDown() {
         return driver.findElement(By.id("days"));
     }
@@ -53,6 +52,7 @@ public class SignupPage {
         return driver.findElement(By.id("years"));
     }
 
+
     public void clickMrsRadioButton() {
         getMrsRadioButton().click();
     }
@@ -61,17 +61,14 @@ public class SignupPage {
         getPasswordField().clear();
         getPasswordField().sendKeys("Testqa91!");
     }
-
     public void selectDay(String day) {
         Select select = new Select(getDayDropDown());
         select.selectByVisibleText(day);
     }
-
     public void selectMonth(String month) {
         Select select = new Select(getMonthDropDown());
         select.selectByVisibleText(month);
     }
-
     public void selectYear(String year) {
         Select select = new Select(getYearDropDown());
         select.selectByVisibleText(year);
@@ -79,9 +76,7 @@ public class SignupPage {
 
     //-------------Address Information-----------------//
 
-    public WebElement getFirstNameField() {
-        return driver.findElement(By.id("first_name"));
-    }
+    public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
     public WebElement getLastNameField() {
         return driver.findElement(By.id("last_name"));
@@ -99,9 +94,7 @@ public class SignupPage {
         return driver.findElement(By.id("state"));
     }
 
-    public WebElement getCityField() {
-        return driver.findElement(By.id("city"));
-    }
+    public WebElement getCityField() {return driver.findElement(By.id("city"));}
 
     public WebElement getZipcodeField() {
         return driver.findElement(By.id("zipcode"));
@@ -111,55 +104,43 @@ public class SignupPage {
         return driver.findElement(By.id("mobile_number"));
     }
 
-    public WebElement getCreateAccountButton() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/div/form/button"));
-    }
+    public WebElement getCreateAccountButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/form/button"));}
 
-    public WebElement getClickContinueButton() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));
-    }
+    public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
 
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
         getFirstNameField().sendKeys("Jane");
     }
-
     public void inputLastName(String lastName) {
         getLastNameField().clear();
         getLastNameField().sendKeys("Doe");
     }
-
     public void inputAddress(String address) {
         getAddressField().clear();
         getAddressField().sendKeys("Cornelia St. 26");
     }
-
     public void selectCountry(String country) {
         Select select = new Select(getCountryDropDown());
         select.selectByVisibleText("United States");
     }
-
     public void inputState(String state) {
         getStateField().clear();
         getStateField().sendKeys("New York");
     }
-
     public void inputCity(String city) {
         getCityField().clear();
         getCityField().sendKeys("New York");
     }
-
     public void inputZipcode(String zipcode) {
         getZipcodeField().clear();
         getZipcodeField().sendKeys("10001");
     }
-
     public void inputMobileNumber(String mobileNumber) {
         getMobileNumberField().clear();
         getMobileNumberField().sendKeys("+1(646)555-3890");
     }
-
     public void clickCreateAccountButton() {
         getCreateAccountButton().click();
     }
@@ -168,11 +149,18 @@ public class SignupPage {
         getClickContinueButton().click();
     }
 
-
     //---------------------Asertacije-----------------------//
 
     public WebElement getAccountCreatedMessage() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
+    }
+
+    public WebElement getExistingEmailMessage() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));
+    }
+
+    public WebElement getEmailField() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));
     }
 
 

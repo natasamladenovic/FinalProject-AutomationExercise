@@ -35,8 +35,26 @@ public class RegistrationTest extends BaseTest {
         signupPage.clickCreateAccountButton();
         Assert.assertTrue(signupPage.getAccountCreatedMessage().isDisplayed());
         signupPage.clickContinueButton();
-
     }
+
+    @Test
+    public void userCannotRegisterWithExistingEmail() {
+        homePage.clickOnSignupLogin();
+        signupPage.enterName("Jane Doe");
+        signupPage.enterEmail("janedoeqa26@gmail.com");
+        signupPage.clickSignupButton();
+        Assert.assertTrue(signupPage.getExistingEmailMessage().isDisplayed());
+    }
+
+    @Test
+    public void userCannotRegisterWithInvalidEmail() {
+        homePage.clickOnSignupLogin();
+        signupPage.enterName("Jane Doe");
+        signupPage.enterEmail("janedoeqa26gmail.com");
+        signupPage.clickSignupButton();
+        Assert.assertFalse(signupPage.getEmailField().getAttribute("validationMessage").isEmpty());
+    }
+
 
 
 
