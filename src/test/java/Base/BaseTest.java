@@ -1,11 +1,10 @@
 package Base;
 
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.ProductsPage;
-import Pages.SignupPage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 
@@ -19,6 +18,7 @@ public class BaseTest {
     public SignupPage signupPage;
     public LoginPage loginPage;
     public ProductsPage productsPage;
+    public CartPage cartPage;
 
     @BeforeClass
     public void setUp() {
@@ -34,8 +34,10 @@ public class BaseTest {
         signupPage = new SignupPage(driver);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
 
     }
+
 
 
 

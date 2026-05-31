@@ -29,10 +29,19 @@ public class ProductsPage {
         return driver.findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[2]/ul/li/a"));
     }
 
+    public WebElement getAddToCartButton() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/span/button"));
+    }
+
+    public WebElement getViewCartButton() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[1]/div/div/div[2]/p[2]/a"));
+    }
+
+
 
     public void inputProductName(String productName) {
         getSearchField().clear();
-        getSearchField().sendKeys("Blue Top");
+        getSearchField().sendKeys(productName);
     }
 
     public void clickSearchButton() {
@@ -46,4 +55,16 @@ public class ProductsPage {
 
         getProductDetail().click();
     }
+
+    public void clickAddToCartButton() {
+        getAddToCartButton().click();
+    }
+
+    public void clickViewCartButton() {
+        getViewCartButton().click();
+    }
+
+
+
+
 }
