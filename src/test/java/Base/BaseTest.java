@@ -2,6 +2,7 @@ package Base;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.ProductsPage;
 import Pages.SignupPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class BaseTest {
     public HomePage homePage;
     public SignupPage signupPage;
     public LoginPage loginPage;
+    public ProductsPage productsPage;
 
     @BeforeClass
     public void setUp() {
@@ -31,6 +33,7 @@ public class BaseTest {
         homePage = new HomePage(driver);
         signupPage = new SignupPage(driver);
         loginPage = new LoginPage(driver);
+        productsPage = new ProductsPage(driver);
 
     }
 

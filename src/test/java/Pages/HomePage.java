@@ -19,6 +19,12 @@ public class HomePage {
         signupLoginButton.click();
     }
 
+    public void clickProductsButton() {
+
+        WebElement productsButton = driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[2]/a"));
+        productsButton.click();
+    }
+
 
 
 }
