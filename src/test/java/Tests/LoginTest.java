@@ -7,21 +7,24 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     @Test
-    public void userCanLogin() {
+    public void userCanLogin() throws InterruptedException {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoeqa26@gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
         loginPage.clickLoginButton();
         Assert.assertTrue(loginPage.getLoggedInAsMessage().isDisplayed());
+        Thread.sleep(2000);
+        homePage.clickLogoutButton();
+        Assert.assertTrue(homePage.getSignupLoginButton().isDisplayed());
     }
 
     @Test
     public void userCannotLoginWithInvalidEmail() {
         homePage.clickOnSignupLogin();
-        loginPage.inputLoginEmail("janedoe26@gmail.com");
+        loginPage.inputLoginEmail("janedoe26gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
         loginPage.clickLoginButton();
-        Assert.assertTrue(loginPage.getIncorrectEmailOrPasswordMessage().isDisplayed());
+        Assert.assertFalse(signupPage.getEmailField().getAttribute("validationMessage").isEmpty());
     }
 
     @Test

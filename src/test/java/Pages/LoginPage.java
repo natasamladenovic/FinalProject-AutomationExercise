@@ -36,12 +36,12 @@ public class LoginPage {
 
     public void inputLoginEmail(String email) {
         getLoginEmailField().clear();
-        getLoginEmailField().sendKeys("janedoeqa26@gmail.com");
+        getLoginEmailField().sendKeys(email);
     }
 
     public void inputLoginPassword(String password) {
         getLoginPasswordField().clear();
-        getLoginPasswordField().sendKeys("Test91!");
+        getLoginPasswordField().sendKeys(password);
     }
 
     public void clickLoginButton() {
