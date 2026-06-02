@@ -19,6 +19,7 @@ public class BaseTest {
     public LoginPage loginPage;
     public ProductsPage productsPage;
     public CartPage cartPage;
+    public ContactUsPage contactUsPage;
 
     @BeforeClass
     public void setUp() {
@@ -35,6 +36,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
+        contactUsPage = new ContactUsPage(driver);
 
     }
 

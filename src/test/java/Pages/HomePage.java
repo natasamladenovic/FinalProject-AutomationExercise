@@ -24,6 +24,10 @@ public class HomePage {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[2]/a"));
     }
 
+    public WebElement getContactUsButton() {
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[8]/a"));
+    }
+
 
 
 
@@ -37,6 +41,10 @@ public class HomePage {
 
     public void clickProductsButton() {
         getProductsButton().click();
+    }
+
+    public void clicContactUsButton() {
+        getContactUsButton().click();
     }
 
 
