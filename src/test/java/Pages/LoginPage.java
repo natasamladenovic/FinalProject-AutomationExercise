@@ -31,8 +31,12 @@ public class LoginPage {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[10]/a/b")); //Potvrda uspesnog logovanja
     }
     public WebElement getIncorrectEmailOrPasswordMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/p"));//Potvrda neuspesnog logovanja zbog nevalidnog password-a
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/p")); //Potvrda neuspesnog logovanja zbog nevalidnog password-a
     }
+    public WebElement getLoginToYourAccount () {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/h2")); //Potvrda da smo i dalje na istoj stranici, kod polja za logovanje
+    }
+
 
 
     //Metode, da bi se svaki unos izvrsio u odredjeno polje

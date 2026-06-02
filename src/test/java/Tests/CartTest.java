@@ -15,6 +15,8 @@ public class CartTest extends BaseTest {
         productsPage.clickAddToCartButton();
         productsPage.clickViewCartButton();
         Assert.assertEquals(cartPage.getProductInCart().getText(), "Blue Top");
+        Assert.assertTrue(cartPage.getProceedToCheckoutButton().isDisplayed());
+        Assert.assertTrue(cartPage.getTotal().isDisplayed());
     }
 
     @Test (priority = 30)
@@ -25,6 +27,8 @@ public class CartTest extends BaseTest {
         productsPage.clickViewProductButton();
         productsPage.clickAddToCartButton();
         productsPage.clickViewCartButton();
+        Assert.assertTrue(cartPage.getProceedToCheckoutButton().isDisplayed());
+        Assert.assertTrue(cartPage.getTotal().isDisplayed());
     }
 
     @Test (priority = 10)

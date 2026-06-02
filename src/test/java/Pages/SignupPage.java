@@ -172,6 +172,10 @@ public class SignupPage {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));//Potvrda neuspesnog registrovanja nevalidnim mejlom (pop up poruka)
     }
 
+    public WebElement getNewUserSignUp() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/h2")); //Potvrda da smo i dalje na istoj stranici, kod polja za registraciju
+    }
+
 
 
 

@@ -34,6 +34,15 @@ public class ProductsPage {
     public WebElement getViewCartButton() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[1]/div/div/div[2]/p[2]/a"));
     }
+    public WebElement getAvailability() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[2]/b"));
+    }
+    public WebElement getCondition() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[3]/b"));
+    }
+    public WebElement getBrand() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[4]/b"));
+    }
 
 
     //Metode za unos proizvoda u polje i pretragu

@@ -7,8 +7,13 @@ import org.testng.annotations.Test;
 public class ProductsTest extends BaseTest {
 
     @Test (priority = 10) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
-    public void userCanOpenProductsPage() { //Korisnik moze uspesno da otvori stranicu sa proizvodima
+    public void userCanOpenProductsPage() throws InterruptedException { //Korisnik moze uspesno da otvori stranicu sa proizvodima
+        homePage.clickOnSignupLogin();
+        loginPage.inputLoginEmail("janedoeqa26@gmail.com");
+        loginPage.inputLoginPassword("Testqa91!");
+        loginPage.clickLoginButton();
         homePage.clickProductsButton();
+        Thread.sleep(5000);
         Assert.assertTrue(driver.getCurrentUrl().contains("products"));
     }
 
@@ -18,6 +23,7 @@ public class ProductsTest extends BaseTest {
         productsPage.inputProductName("Blue Top");
         productsPage.clickSearchButton();
         Assert.assertTrue(productsPage.getBlueTop().isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains("Blue%20Top"));
     }
 
     @Test (priority = 30)
@@ -26,5 +32,8 @@ public class ProductsTest extends BaseTest {
         productsPage.inputProductName("Blue Top");
         productsPage.clickSearchButton();
         productsPage.clickViewProductButton();
+        Assert.assertTrue(productsPage.getAvailability().isDisplayed());
+        Assert.assertTrue(productsPage.getCondition().isDisplayed());
+        Assert.assertTrue(productsPage.getBrand().isDisplayed());
     }
 }

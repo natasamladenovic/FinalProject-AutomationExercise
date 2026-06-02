@@ -48,6 +48,8 @@ public class RegistrationTest extends BaseTest {
         signupPage.enterEmail("janedoeqa26@gmail.com");
         signupPage.clickSignupButton();
         Assert.assertTrue(signupPage.getExistingEmailMessage().isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains("signup"));
+        Assert.assertTrue(signupPage.getNewUserSignUp().isDisplayed());
     }
 
     @Test (priority = 40)
@@ -57,6 +59,8 @@ public class RegistrationTest extends BaseTest {
         signupPage.enterEmail("janedoeqa26gmail.com");
         signupPage.clickSignupButton();
         Assert.assertFalse(signupPage.getEmailField().getAttribute("validationMessage").isEmpty());
+        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+        Assert.assertTrue(signupPage.getNewUserSignUp().isDisplayed());
     }
 
 

@@ -62,6 +62,9 @@ public class CartPage {
     public WebElement getOrderPlacedMessage() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b")); //Potvrda da je uspesno izvrsena porudzbina
     }
+    public WebElement getTotal() {
+        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/thead/tr/td[5]"));
+    }
 
 
 

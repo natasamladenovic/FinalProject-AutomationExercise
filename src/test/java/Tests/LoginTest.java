@@ -25,6 +25,8 @@ public class LoginTest extends BaseTest {
         loginPage.inputLoginPassword("Testqa91!");
         loginPage.clickLoginButton();
         Assert.assertFalse(signupPage.getEmailField().getAttribute("validationMessage").isEmpty());
+        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+        Assert.assertTrue(loginPage.getLoginToYourAccount().isDisplayed());
     }
 
     @Test (priority = 30)
@@ -34,5 +36,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputLoginPassword("Test91!");
         loginPage.clickLoginButton();
         Assert.assertTrue(loginPage.getIncorrectEmailOrPasswordMessage().isDisplayed());
+        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+        Assert.assertTrue(loginPage.getLoginToYourAccount().isDisplayed());
     }
 }
