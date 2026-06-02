@@ -6,44 +6,44 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 
+    //koristi se na nivou klase
     WebDriver driver;
 
+    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
     public LoginPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
+    //Trazim elemenate pomocu lokatora kako bih izvrsila logovanje na stranicu
     public WebElement getLoginEmailField() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/input[2]"));
     }
-
     public WebElement getLoginPasswordField() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/input[3]"));
     }
-
     public WebElement getLoginButton() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/button"));
     }
 
+    //Asertacije koje sluze kao potvrda da li je test prosao ili pao
     public WebElement getLoggedInAsMessage() {
-        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[10]/a/b"));
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[10]/a/b")); //Potvrda uspesnog logovanja
     }
-
     public WebElement getIncorrectEmailOrPasswordMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/p"));
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/p"));//Potvrda neuspesnog logovanja zbog nevalidnog password-a
     }
 
 
-
+    //Metode, da bi se svaki unos izvrsio u odredjeno polje
     public void inputLoginEmail(String email) {
         getLoginEmailField().clear();
         getLoginEmailField().sendKeys(email);
     }
-
     public void inputLoginPassword(String password) {
         getLoginPasswordField().clear();
         getLoginPasswordField().sendKeys(password);
     }
-
     public void clickLoginButton() {
         getLoginButton().click();
     }

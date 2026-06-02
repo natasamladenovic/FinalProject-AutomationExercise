@@ -7,9 +7,12 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SignupPage {
 
+    //Koristi se na nivou klase
     WebDriver driver;
 
+    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
     public SignupPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
@@ -20,13 +23,11 @@ public class SignupPage {
         WebElement nameField = driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[2]"));
         nameField.sendKeys(name);
     }
-
     public void enterEmail(String email) {
 
         WebElement emailField = driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));
         emailField.sendKeys(email);
     }
-
     public void clickSignupButton() {
 
         WebElement signupButton = driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/button"));
@@ -35,8 +36,7 @@ public class SignupPage {
 
     //--------------Enter Account Information-------------------//
 
-    //Geteri//
-
+    //Trazim elemente pomocu lokatora kako bih prazna polja za registraciju popunila podacima
     public WebElement getMrsRadioButton() {
         return driver.findElement(By.id("id_gender2"));
     }
@@ -55,8 +55,8 @@ public class SignupPage {
         return driver.findElement(By.id("years"));
     }
 
-    //Metode//
 
+    //Metode koje sam ovde koristila mi sluze da unesem podatke u prazna polja u SignupPage-u
     public void clickMrsRadioButton() {
 
         getMrsRadioButton().click();
@@ -65,6 +65,7 @@ public class SignupPage {
         getPasswordField().clear();
         getPasswordField().sendKeys(password);
     }
+    //Metodu Select sam iskoristila ovde kako bih mogla da izaberem datum rodjenja iz padajuceg menija
     public void selectDay(String day) {
         Select select = new Select(getDayDropDown());
         select.selectByVisibleText(day);
@@ -80,8 +81,7 @@ public class SignupPage {
 
     //-------------Address Information-----------------//
 
-    //Geteri//
-
+    //Trazim elemente pomocu lokatora radi popunjavanja licnih podataka
     public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
     public WebElement getLastNameField() {
@@ -114,11 +114,11 @@ public class SignupPage {
 
     public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
-    //Metode//
 
+    //Nakon pronalska lokatora, slede metode kako bi svaki unos bio izvrsen u pravo polje.
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
-        getFirstNameField().sendKeys(firstName);
+        getFirstNameField().sendKeys(firstName);//ova promenljiva, nam omogucava da podatke menjamo samo u test klasi, ne i u metodi
     }
     public void inputLastName(String lastName) {
         getLastNameField().clear();
@@ -159,16 +159,17 @@ public class SignupPage {
 
     //---------------------Asertacije-----------------------//
 
+    //Sluze kao potvrda da li je test prosao ili pao
     public WebElement getAccountCreatedMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
+        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));//Potvrda uspesnog registrovanja
     }
 
     public WebElement getExistingEmailMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));//Potvrda neuspesnog registrovanja zbog vec registrovanog mejla
     }
 
     public WebElement getEmailField() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));//Potvrda neuspesnog registrovanja nevalidnim mejlom (pop up poruka)
     }
 
 

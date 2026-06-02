@@ -7,28 +7,23 @@ import org.openqa.selenium.WebElement;
 
 public class CartPage {
 
+    //Koristi se na nivou klase
     WebDriver driver;
 
+    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
     public CartPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
-    public WebElement getProductInCart() {
-        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[2]/h4/a"));
-    }
-
+    //Trazim elemente pomocu lokatora kako bih izvrsila proveru ubacivanja i brisanja proizvoda iz korpe.
     public WebElement getRemoveItem() {
         return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[6]/a"));
     }
-
-    public WebElement getEmptyCartMessage() {
-        return driver.findElement(By.xpath("//p[@class='text-center']/b"));
-    }
-
+    //Ovde koristim lokatore kako bih izvrsila proveru placanja proizvoda iz korpe
     public WebElement getProceedToCheckoutButton() {
         return driver.findElement(By.xpath("/html/body/section/div/section/div[1]/div/div/a"));
     }
-
     public WebElement getPlaceOrderButton() {
         return driver.findElement(By.xpath("/html/body/section/div/div[7]/a"));
     }
@@ -48,7 +43,6 @@ public class CartPage {
     public WebElement getExpirationMonthField() {
         return driver.findElement(By.name("expiry_month"));
     }
-
     public WebElement getExpirationYearField() {
         return driver.findElement(By.name("expiry_year"));
     }
@@ -57,13 +51,23 @@ public class CartPage {
         return driver.findElement(By.id("submit"));
     }
 
+
+    //Asertacije//
+    public WebElement getProductInCart() {
+        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[2]/h4/a")); //Potvrda da je proizvod u korpi
+    }
+    public WebElement getEmptyCartMessage() {
+        return driver.findElement(By.xpath("//p[@class='text-center']/b")); //Potvrda da je korpa prazna
+    }
     public WebElement getOrderPlacedMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
+        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b")); //Potvrda da je uspesno izvrsena porudzbina
     }
 
 
 
 
+
+    //Metode koristim da bi svaki unos bio u odredjeno polje
     public void clickRemoveItemButton() {
         getRemoveItem().click();
     }
@@ -72,6 +76,7 @@ public class CartPage {
         getProceedToCheckoutButton().click();
     }
 
+    //Ovde takodje koristim metodu za scroll stranice do elementa gde se nalazi lokator
     public void clickPlaceOrderButton() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",
@@ -79,32 +84,26 @@ public class CartPage {
 
         getPlaceOrderButton().click();
     }
-
     public void inputNameOnCard(String name) {
         getNameOnCardField().clear();
         getNameOnCardField().sendKeys(name);
     }
-
     public void inputCardNumber(String cardNumber) {
         getCardNumberField().clear();
         getCardNumberField().sendKeys(cardNumber);
     }
-
     public void inputCvc(String cvc) {
         getCvcField().clear();
         getCvcField().sendKeys(cvc);
     }
-
     public void inputExpirationMonth(String month) {
         getExpirationMonthField().clear();
         getExpirationMonthField().sendKeys(month);
     }
-
     public void inputExpirationYear(String year) {
         getExpirationYearField().clear();
         getExpirationYearField().sendKeys(year);
     }
-
     public void clickPayAndConfirmOrderButton() {
         getPayAndConfirmOrder().click();
     }

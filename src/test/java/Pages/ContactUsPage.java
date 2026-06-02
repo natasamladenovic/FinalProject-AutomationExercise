@@ -6,12 +6,15 @@ import org.openqa.selenium.WebElement;
 
 public class ContactUsPage {
 
+    //Koristi se na nivou klase
     WebDriver driver;
 
+    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
 
+    //Trazim elemente pomocu lokatora kako bih unela podatke za kontaktiranje
     public WebElement getNameField() {
         return driver.findElement(By.name("name"));
     }
@@ -42,31 +45,26 @@ public class ContactUsPage {
 
 
 
-
+    //Metode za unos podataka u odredjena polja
     public void inputName(String name) {
         getNameField().clear();
         getNameField().sendKeys(name);
     }
-
     public void inputEmail(String email) {
         getEmailField().clear();
         getEmailField().sendKeys(email);
     }
-
     public void inputSubject(String subject) {
         getSubjectField().clear();
         getSubjectField().sendKeys(subject);
     }
-
     public void inputMessage(String message) {
         getMessageField().clear();
         getMessageField().sendKeys(message);
     }
-
     public void uploadFile(String filePath) {
         getUploadFileButton().sendKeys("C:\\Users\\Natasa\\Desktop\\Hello.docx");
     }
-
     public void clickSubmitButton() {
         getSubmitButton().click();
     }

@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
 
 public class RegistrationTest extends BaseTest {
 
-    @Test
-    public void userCanOpenSignupPage() {
+    @Test (priority = 10) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
+    public void userCanOpenSignupPage() { //Test da korisnik moze da otvori SignupPage
         homePage.clickOnSignupLogin();
 
     }
 
-    @Test
-    public void userCanStartRegistration() throws InterruptedException {
+    @Test (priority = 20)
+    public void userCanStartRegistration() throws InterruptedException { //Test da korisnik moze da se registruje
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26@gmail.com");
@@ -36,13 +36,13 @@ public class RegistrationTest extends BaseTest {
         signupPage.clickCreateAccountButton();
         Assert.assertTrue(signupPage.getAccountCreatedMessage().isDisplayed());
         signupPage.clickContinueButton();
-        Thread.sleep(2000);
+        Thread.sleep(2000); //Ubacila sam Thread sleep na 2 sekunde kako ne bi program kliknuo na logout dugme pre nego sto se pojavi
         homePage.clickLogoutButton();
         Assert.assertTrue(homePage.getSignupLoginButton().isDisplayed());
     }
 
-    @Test
-    public void userCannotRegisterWithExistingEmail() {
+    @Test (priority = 30)
+    public void userCannotRegisterWithExistingEmail() { //Test da korisnik ne moze da se uloguje sa vec registrovanim mejlom
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26@gmail.com");
@@ -50,8 +50,8 @@ public class RegistrationTest extends BaseTest {
         Assert.assertTrue(signupPage.getExistingEmailMessage().isDisplayed());
     }
 
-    @Test
-    public void userCannotRegisterWithInvalidEmail() {
+    @Test (priority = 40)
+    public void userCannotRegisterWithInvalidEmail() { //Test da korisnik ne moze da se uloguje sa nevalidnim mejlom
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26gmail.com");
