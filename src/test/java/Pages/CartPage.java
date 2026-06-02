@@ -10,17 +10,17 @@ public class CartPage {
     //Koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //konstruktor
     public CartPage(WebDriver driver) {
 
         this.driver = driver;
     }
 
-    //Trazim elemente pomocu lokatora kako bih izvrsila proveru ubacivanja i brisanja proizvoda iz korpe.
+    //lokatori za proveru ubacivanja i brisanja proizvoda iz korpe.
     public WebElement getRemoveItem() {
         return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[6]/a"));
     }
-    //Ovde koristim lokatore kako bih izvrsila proveru placanja proizvoda iz korpe
+    //lokatori za proveru placanja proizvoda iz korpe
     public WebElement getProceedToCheckoutButton() {
         return driver.findElement(By.xpath("/html/body/section/div/section/div[1]/div/div/a"));
     }
@@ -70,7 +70,7 @@ public class CartPage {
 
 
 
-    //Metode koristim da bi svaki unos bio u odredjeno polje
+    //Metode za svaki unos u odredjeno polje
     public void clickRemoveItemButton() {
         getRemoveItem().click();
     }
@@ -79,7 +79,7 @@ public class CartPage {
         getProceedToCheckoutButton().click();
     }
 
-    //Ovde takodje koristim metodu za scroll stranice do elementa gde se nalazi lokator
+    //Metoda za scroll stranice do elementa gde se nalazi lokator
     public void clickPlaceOrderButton() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",

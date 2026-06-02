@@ -9,13 +9,13 @@ public class LoginPage {
     //koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //Konstruktor
     public LoginPage(WebDriver driver) {
 
         this.driver = driver;
     }
 
-    //Trazim elemenate pomocu lokatora kako bih izvrsila logovanje na stranicu
+    //Lokatori za logovanje na stranicu
     public WebElement getLoginEmailField() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/input[2]"));
     }
@@ -39,7 +39,7 @@ public class LoginPage {
 
 
 
-    //Metode, da bi se svaki unos izvrsio u odredjeno polje
+    //Metode za svaki unos u odredjeno polje
     public void inputLoginEmail(String email) {
         getLoginEmailField().clear();
         getLoginEmailField().sendKeys(email);

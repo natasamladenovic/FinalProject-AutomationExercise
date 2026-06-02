@@ -36,7 +36,7 @@ public class RegistrationTest extends BaseTest {
         signupPage.clickCreateAccountButton();
         Assert.assertTrue(signupPage.getAccountCreatedMessage().isDisplayed());
         signupPage.clickContinueButton();
-        Thread.sleep(2000); //Ubacila sam Thread sleep na 2 sekunde kako ne bi program kliknuo na logout dugme pre nego sto se pojavi
+        Thread.sleep(2000);
         homePage.clickLogoutButton();
         Assert.assertTrue(homePage.getSignupLoginButton().isDisplayed());
     }

@@ -13,7 +13,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputLoginPassword("Testqa91!");
         loginPage.clickLoginButton();
         Assert.assertTrue(loginPage.getLoggedInAsMessage().isDisplayed());
-        Thread.sleep(2000); //Ubacila sam Thread sleep na 2 sekunde kako ne bi program kliknuo na logout dugme pre nego sto se pojavi
+        Thread.sleep(2000);
         homePage.clickLogoutButton();
         Assert.assertTrue(homePage.getSignupLoginButton().isDisplayed());
     }

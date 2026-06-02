@@ -35,7 +35,7 @@ public class BaseTest {
 
         driver.navigate().to("https://automationexercise.com/");
 
-        //Ovde sam napravila objekte, (driver)-zato sto sam konstruktor napravila na svakom Page-u.
+        //napravljeni objekti, (driver)-zato sto sam konstruktor napravila na svakom Page-u.
         homePage = new HomePage(driver);
         signupPage = new SignupPage(driver);
         loginPage = new LoginPage(driver);
@@ -45,13 +45,13 @@ public class BaseTest {
 
     }
 
-    /*@AfterClass
+    @AfterClass
     //Zatvaranje browsera nakon zavrsetka testova
     public void tearDown() {
         driver.quit();
     }
 
-     */
+
 
 
 

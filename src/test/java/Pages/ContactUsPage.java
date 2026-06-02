@@ -9,12 +9,12 @@ public class ContactUsPage {
     //Koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //Konstruktor
     public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Trazim elemente pomocu lokatora kako bih unela podatke za kontaktiranje
+    //Lokatori za unos podataka za kontaktiranje
     public WebElement getNameField() {
         return driver.findElement(By.name("name"));
     }
@@ -45,7 +45,7 @@ public class ContactUsPage {
 
 
 
-    //Metode za unos podataka u odredjena polja
+    //Metode za svaki unos u odredjeno polje
     public void inputName(String name) {
         getNameField().clear();
         getNameField().sendKeys(name);

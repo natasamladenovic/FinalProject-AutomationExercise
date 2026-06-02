@@ -10,7 +10,7 @@ public class SignupPage {
     //Koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //Konstruktor
     public SignupPage(WebDriver driver) {
 
         this.driver = driver;
@@ -36,7 +36,7 @@ public class SignupPage {
 
     //--------------Enter Account Information-------------------//
 
-    //Trazim elemente pomocu lokatora kako bih prazna polja za registraciju popunila podacima
+    //Lokatori za registraciju
     public WebElement getMrsRadioButton() {
         return driver.findElement(By.id("id_gender2"));
     }
@@ -56,7 +56,7 @@ public class SignupPage {
     }
 
 
-    //Metode koje sam ovde koristila mi sluze da unesem podatke u prazna polja u SignupPage-u
+    //Metode za svaki unos u odredjeno polje
     public void clickMrsRadioButton() {
 
         getMrsRadioButton().click();
@@ -65,7 +65,7 @@ public class SignupPage {
         getPasswordField().clear();
         getPasswordField().sendKeys(password);
     }
-    //Metodu Select sam iskoristila ovde kako bih mogla da izaberem datum rodjenja iz padajuceg menija
+    //Metodu Select sam iskoristila ovde kako bih mogla da izaberem datum rodjenja iz padajuce liste
     public void selectDay(String day) {
         Select select = new Select(getDayDropDown());
         select.selectByVisibleText(day);
@@ -81,7 +81,7 @@ public class SignupPage {
 
     //-------------Address Information-----------------//
 
-    //Trazim elemente pomocu lokatora radi popunjavanja licnih podataka
+    //Lokatori za dodatne informacije za registraciju
     public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
     public WebElement getLastNameField() {
@@ -115,10 +115,10 @@ public class SignupPage {
     public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
 
-    //Nakon pronalska lokatora, slede metode kako bi svaki unos bio izvrsen u pravo polje.
+    //Metode za svaki unos u odredjeno polje
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
-        getFirstNameField().sendKeys(firstName);//ova promenljiva, nam omogucava da podatke menjamo samo u test klasi, ne i u metodi
+        getFirstNameField().sendKeys(firstName);
     }
     public void inputLastName(String lastName) {
         getLastNameField().clear();

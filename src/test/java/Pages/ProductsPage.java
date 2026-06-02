@@ -10,12 +10,12 @@ public class ProductsPage {
     //Koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //Konstruktor
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Trazim elemente pomocu lokatora kako bih izvrsila pretragu, izbor proizvoda i dodavanje u korpu
+    //Lokatori za pretragu, izbor proizvoda i dodavanje u korpu
     public WebElement getSearchField() {
         return driver.findElement(By.id("search_product"));
     }
@@ -45,7 +45,7 @@ public class ProductsPage {
     }
 
 
-    //Metode za unos proizvoda u polje i pretragu
+    //Metode za svaki unos u odredjeno polje
     public void inputProductName(String productName) {
         getSearchField().clear();
         getSearchField().sendKeys(productName);

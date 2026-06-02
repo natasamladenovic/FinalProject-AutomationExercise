@@ -10,15 +10,14 @@ public class HomePage {
     //koristi se na nivou klase
     WebDriver driver;
 
-    //Driver koji pripada ovoj klasi, prosledjeni driver se smesta u driver ove klase
+    //Konstruktor
     public HomePage(WebDriver driver) {
 
         this.driver = driver;
     }
 
 
-    //Getteri, koje koristim da pronadjem elemente pomocu lokatora. Iz homePage stranice sam konkretno trazila lokatore
-    //da pristupim ostalim starnicama
+    //Lokatori za pristup ostalim stranicama
     public WebElement getSignupLoginButton() {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a"));
     }
@@ -34,7 +33,7 @@ public class HomePage {
 
 
 
-    //Metode koje sam ovde koristila mi sluze da klikom pristupim odredjenoj stranici iz homePage stranice.
+    //Metode za pristup ostalim stranicama
     public void clickOnSignupLogin() {
         getSignupLoginButton().click();
     }
