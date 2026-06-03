@@ -45,11 +45,13 @@ public class BaseTest {
 
     }
 
-    @AfterClass
+    /*@AfterClass
     //Zatvaranje browsera nakon zavrsetka testova
     public void tearDown() {
         driver.quit();
     }
+
+     */
 
 
 

@@ -30,6 +30,12 @@ public class HomePage {
     public WebElement getContactUsButton() {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[8]/a"));
     }
+    public WebElement getDeleteAccountButton() {
+        return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[5]/a"));
+    }
+    public WebElement getAccountDeleteMessage() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
+    }
 
 
 
@@ -48,6 +54,10 @@ public class HomePage {
 
     public void clickContactUsButton() {
         getContactUsButton().click();
+    }
+
+    public void clickDeleteAccountButton() {
+        getDeleteAccountButton().click();
     }
 
 
