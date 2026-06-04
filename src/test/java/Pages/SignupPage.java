@@ -7,10 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SignupPage {
 
-    //Koristi se na nivou klase
+    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
-    //Konstruktor
     public SignupPage(WebDriver driver) {
 
         this.driver = driver;
@@ -36,7 +35,7 @@ public class SignupPage {
 
     //--------------Enter Account Information-------------------//
 
-    //Lokatori za registraciju
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getMrsRadioButton() {
         return driver.findElement(By.id("id_gender2"));
     }
@@ -56,7 +55,8 @@ public class SignupPage {
     }
 
 
-    //Metode za svaki unos u odredjeno polje
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void clickMrsRadioButton() {
 
         getMrsRadioButton().click();
@@ -81,7 +81,7 @@ public class SignupPage {
 
     //-------------Address Information-----------------//
 
-    //Lokatori za dodatne informacije za registraciju
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
     public WebElement getLastNameField() {
@@ -115,7 +115,8 @@ public class SignupPage {
     public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
 
-    //Metode za svaki unos u odredjeno polje
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
         getFirstNameField().sendKeys(firstName);
@@ -159,7 +160,7 @@ public class SignupPage {
 
     //---------------------Asertacije-----------------------//
 
-    //Sluze kao potvrda da li je test prosao ili pao
+    //Sluze nam da bismo proverili validnost testova
     public WebElement getAccountCreatedMessage() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));//Potvrda uspesnog registrovanja
     }

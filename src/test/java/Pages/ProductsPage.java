@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 
 public class ProductsPage {
 
-    //Koristi se na nivou klase
+    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
-    //Konstruktor
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Lokatori za pretragu, izbor proizvoda i dodavanje u korpu
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getSearchField() {
         return driver.findElement(By.id("search_product"));
     }
@@ -45,7 +44,8 @@ public class ProductsPage {
     }
 
 
-    //Metode za svaki unos u odredjeno polje
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void inputProductName(String productName) {
         getSearchField().clear();
         getSearchField().sendKeys(productName);

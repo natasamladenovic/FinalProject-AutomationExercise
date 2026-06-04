@@ -7,17 +7,16 @@ import org.openqa.selenium.WebElement;
 
 public class HomePage {
 
-    //koristi se na nivou klase
+    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
-    //Konstruktor
     public HomePage(WebDriver driver) {
 
         this.driver = driver;
     }
 
 
-    //Lokatori za pristup ostalim stranicama
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getSignupLoginButton() {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a"));
     }
@@ -39,7 +38,8 @@ public class HomePage {
 
 
 
-    //Metode za pristup ostalim stranicama
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void clickOnSignupLogin() {
         getSignupLoginButton().click();
     }

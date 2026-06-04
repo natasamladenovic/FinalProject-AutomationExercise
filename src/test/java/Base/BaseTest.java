@@ -11,13 +11,14 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
-public class BaseTest {
+public class BaseTest {   //Base Test koristim za zajednicku postavku svih testova. Njegova svrha je da izbegnem
+                          //ponavljanje istog koda u svakoj test klasi
 
-    //WebDriver koji se koristi u celom projektu
+    //U BaseTestu se nalazi WebDriver koji koristimo za upravljanje browserom
     public WebDriver driver;
 
-    //Objekti svih stranica u projektu
-    public HomePage homePage; // promenljiva koja ce cuvati objekat klase HomePage
+    //Ovde se nalazi deklaracija stranica
+    public HomePage homePage;
     public SignupPage signupPage;
     public LoginPage loginPage;
     public ProductsPage productsPage;
@@ -35,7 +36,7 @@ public class BaseTest {
 
         driver.navigate().to("https://automationexercise.com/");
 
-        //napravljeni objekti, (driver)-zato sto sam konstruktor napravila na svakom Page-u.
+        //U Base Testu kreiram i objekte svih Page klasa koje koristim u projektu
         homePage = new HomePage(driver);
         signupPage = new SignupPage(driver);
         loginPage = new LoginPage(driver);
@@ -45,13 +46,15 @@ public class BaseTest {
 
     }
 
-    /*@AfterClass
+    @AfterClass
     //Zatvaranje browsera nakon zavrsetka testova
     public void tearDown() {
         driver.quit();
     }
 
-     */
+     //Sve metode i deklaracije se nalaze ovde kako bismo izbegli da svaka Test klasa ponovo pokrece browser i kreira
+     // Page objekte. To bi dovelo do dupliranja kodova
+
 
 
 

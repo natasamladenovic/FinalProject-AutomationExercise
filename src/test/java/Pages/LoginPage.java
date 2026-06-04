@@ -6,16 +6,15 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 
-    //koristi se na nivou klase
+    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
-    //Konstruktor
     public LoginPage(WebDriver driver) {
 
         this.driver = driver;
     }
 
-    //Lokatori za logovanje na stranicu
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getLoginEmailField() {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/input[2]"));
     }
@@ -26,7 +25,7 @@ public class LoginPage {
         return driver.findElement(By.xpath("/html/body/section/div/div/div[1]/div/form/button"));
     }
 
-    //Asertacije koje sluze kao potvrda da li je test prosao ili pao
+    //Asertacije nam sluze da bismo proverili validnost testova
     public WebElement getLoggedInAsMessage() {
         return driver.findElement(By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[10]/a/b")); //Potvrda uspesnog logovanja
     }
@@ -39,7 +38,8 @@ public class LoginPage {
 
 
 
-    //Metode za svaki unos u odredjeno polje
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void inputLoginEmail(String email) {
         getLoginEmailField().clear();
         getLoginEmailField().sendKeys(email);

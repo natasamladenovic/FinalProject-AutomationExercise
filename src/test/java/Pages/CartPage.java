@@ -7,20 +7,18 @@ import org.openqa.selenium.WebElement;
 
 public class CartPage {
 
-    //Koristi se na nivou klase
+    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
-    //konstruktor
     public CartPage(WebDriver driver) {
 
         this.driver = driver;
     }
 
-    //lokatori za proveru ubacivanja i brisanja proizvoda iz korpe.
+    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
     public WebElement getRemoveItem() {
         return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[6]/a"));
     }
-    //lokatori za proveru placanja proizvoda iz korpe
     public WebElement getProceedToCheckoutButton() {
         return driver.findElement(By.xpath("/html/body/section/div/section/div[1]/div/div/a"));
     }
@@ -52,7 +50,7 @@ public class CartPage {
     }
 
 
-    //Asertacije//
+    //Asertacije nam sluze da bismo proverili validnost testova
     public WebElement getProductInCart() {
         return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[2]/h4/a")); //Potvrda da je proizvod u korpi
     }
@@ -70,7 +68,8 @@ public class CartPage {
 
 
 
-    //Metode za svaki unos u odredjeno polje
+    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
+    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
     public void clickRemoveItemButton() {
         getRemoveItem().click();
     }
