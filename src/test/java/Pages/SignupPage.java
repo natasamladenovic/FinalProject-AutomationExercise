@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SignupPage {
 
-    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
+    // Constructor used to initialize the WebDriver for this page
     public SignupPage(WebDriver driver) {
 
         this.driver = driver;
@@ -35,7 +35,7 @@ public class SignupPage {
 
     //--------------Enter Account Information-------------------//
 
-    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
+    // Locators used to find web elements so that Selenium can interact with them
     public WebElement getMrsRadioButton() {
         return driver.findElement(By.id("id_gender2"));
     }
@@ -55,8 +55,7 @@ public class SignupPage {
     }
 
 
-    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
-    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
+    // Methods used to perform actions on page elements
     public void clickMrsRadioButton() {
 
         getMrsRadioButton().click();
@@ -65,7 +64,6 @@ public class SignupPage {
         getPasswordField().clear();
         getPasswordField().sendKeys(password);
     }
-    //Metodu Select sam iskoristila ovde kako bih mogla da izaberem datum rodjenja iz padajuce liste
     public void selectDay(String day) {
         Select select = new Select(getDayDropDown());
         select.selectByVisibleText(day);
@@ -81,7 +79,7 @@ public class SignupPage {
 
     //-------------Address Information-----------------//
 
-    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
+    // Locators used to find web elements so that Selenium can interact with them
     public WebElement getFirstNameField() {return driver.findElement(By.id("first_name"));}
 
     public WebElement getLastNameField() {
@@ -115,8 +113,7 @@ public class SignupPage {
     public WebElement getClickContinueButton() {return driver.findElement(By.xpath("/html/body/section/div/div/div/div/a"));}
 
 
-    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
-    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
+    // Methods used to perform actions on page elements
     public void inputFirstName(String firstName) {
         getFirstNameField().clear();
         getFirstNameField().sendKeys(firstName);
@@ -158,23 +155,26 @@ public class SignupPage {
         getClickContinueButton().click();
     }
 
-    //---------------------Asertacije-----------------------//
+    // Assertions are placed in test classes to verify that the expected result is achieved
 
-    //Sluze nam da bismo proverili validnost testova
+    // Verify that Account Created message is displayed
     public WebElement getAccountCreatedMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));//Potvrda uspesnog registrovanja
+        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
     }
 
+    // Verify that Existing Email message is displayed
     public WebElement getExistingEmailMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));//Potvrda neuspesnog registrovanja zbog vec registrovanog mejla
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));
     }
 
+    // Verify that Wrong Email Pop Up message is displayed
     public WebElement getEmailField() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));//Potvrda neuspesnog registrovanja nevalidnim mejlom (pop up poruka)
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/input[3]"));
     }
 
+    // Verify that user is still on SignUp page
     public WebElement getNewUserSignUp() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/h2")); //Potvrda da smo i dalje na istoj stranici, kod polja za registraciju
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/h2"));
     }
 
 

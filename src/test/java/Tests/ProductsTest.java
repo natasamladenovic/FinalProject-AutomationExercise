@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class ProductsTest extends BaseTest {
 
-    @Test (priority = 10) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
-    public void userCanOpenProductsPage() throws InterruptedException { //Korisnik moze uspesno da otvori stranicu sa proizvodima
+    @Test (priority = 10) //Priority is used to define which test should run first and which should run later
+    public void userCanOpenProductsPage() throws InterruptedException {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoeqa26@gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
@@ -18,7 +18,7 @@ public class ProductsTest extends BaseTest {
     }
 
     @Test (priority = 20)
-    public void userCanSearchProduct() { //Korisnik moze uspesno da izvrsi pretragu proizvoda
+    public void userCanSearchProduct() {
         homePage.clickProductsButton();
         productsPage.inputProductName("Blue Top");
         productsPage.clickSearchButton();
@@ -27,7 +27,7 @@ public class ProductsTest extends BaseTest {
     }
 
     @Test (priority = 30)
-    public void userCanOpenProductDetails() { //Korisnik moze da otvori detaljne informacije o proizvodu
+    public void userCanOpenProductDetails() {
         homePage.clickProductsButton();
         productsPage.inputProductName("Blue Top");
         productsPage.clickSearchButton();

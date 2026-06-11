@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class ContactUsTest extends BaseTest {
 
     @Test
-    public void userCanSubmitContactForm() throws InterruptedException { //Korisnik uspesno submit-uje kontakt formu
+    public void userCanSubmitContactForm() throws InterruptedException {
 
         homePage.clickContactUsButton();
         contactUsPage.inputName("Jane Doe");

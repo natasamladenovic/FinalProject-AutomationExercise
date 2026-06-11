@@ -2,22 +2,21 @@ package Base;
 
 import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
-public class BaseTest {   //Base Test koristim za zajednicku postavku svih testova. Njegova svrha je da izbegnem
-                          //ponavljanje istog koda u svakoj test klasi
+public class BaseTest {  //Base Test contains common setup used by all classes
 
-    //U BaseTestu se nalazi WebDriver koji koristimo za upravljanje browserom
+    //WebDriver used to control the browser
     public WebDriver driver;
 
-    //Ovde se nalazi deklaracija stranica
+    //Page object declaration
     public HomePage homePage;
     public SignupPage signupPage;
     public LoginPage loginPage;
@@ -26,7 +25,7 @@ public class BaseTest {   //Base Test koristim za zajednicku postavku svih testo
     public ContactUsPage contactUsPage;
 
     @BeforeClass
-    //Pokretanje browsera i inicijalizacija svih stranica
+    //Browser startup and page object initialization
     public void setUp() {
 
         WebDriverManager.chromedriver().setup();
@@ -36,7 +35,7 @@ public class BaseTest {   //Base Test koristim za zajednicku postavku svih testo
 
         driver.navigate().to("https://automationexercise.com/");
 
-        //U Base Testu kreiram i objekte svih Page klasa koje koristim u projektu
+        //Create instances of all Page classes used in the project
         homePage = new HomePage(driver);
         signupPage = new SignupPage(driver);
         loginPage = new LoginPage(driver);
@@ -47,13 +46,17 @@ public class BaseTest {   //Base Test koristim za zajednicku postavku svih testo
     }
 
     @AfterClass
-    //Zatvaranje browsera nakon zavrsetka testova
+    //Close the browser after all tests are completed
     public void tearDown() {
         driver.quit();
     }
 
-     //Sve metode i deklaracije se nalaze ovde kako bismo izbegli da svaka Test klasa ponovo pokrece browser i kreira
-     // Page objekte. To bi dovelo do dupliranja kodova
+
+    // Common setup is placed in BaseTest to avoid code duplication
+    // Page objects are initialized once and reused across test classes
+    // The project follows the Page Object Model (POM) design pattern
+    // Each page has its own class containing locators and methods
+    // This improves code reusability, readability, and maintenance
 
 
 

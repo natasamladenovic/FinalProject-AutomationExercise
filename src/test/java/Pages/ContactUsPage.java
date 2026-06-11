@@ -6,14 +6,16 @@ import org.openqa.selenium.WebElement;
 
 public class ContactUsPage {
 
-    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
+
     WebDriver driver;
 
+    // Constructor used to initialize the WebDriver for this page
     public ContactUsPage(WebDriver driver) {
+
         this.driver = driver;
     }
 
-    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
+    // Locators used to find web elements so that Selenium can interact with them
     public WebElement getNameField() {
         return driver.findElement(By.name("name"));
     }
@@ -44,8 +46,7 @@ public class ContactUsPage {
 
 
 
-    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
-    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
+    // Methods used to perform actions on page elements
     public void inputName(String name) {
         getNameField().clear();
         getNameField().sendKeys(name);

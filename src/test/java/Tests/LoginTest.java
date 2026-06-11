@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test (priority = 10) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
-    public void userCanLogin() throws InterruptedException { //Korisnik moze uspesno da se uloguje
+    @Test (priority = 10) //Priority is used to define which test should run first and which should run later
+    public void userCanLogin() throws InterruptedException {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoeqa26@gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test (priority = 20)
-    public void userCannotLoginWithInvalidEmail() { //Korisnik ne moze da se uloguje sa nevalidnim mejlom
+    public void userCannotLoginWithInvalidEmail() {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoe26gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test (priority = 30)
-    public void userCannotLoginWithInvalidPassword() { //Korisnik ne moze da se uloguje sa nevalidnom lozinkom
+    public void userCannotLoginWithInvalidPassword() {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoeqa26@gmail.com");
         loginPage.inputLoginPassword("Test91!");

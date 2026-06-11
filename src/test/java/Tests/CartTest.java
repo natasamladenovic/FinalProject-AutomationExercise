@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-    @Test (priority = 20) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
-    public void userCanAddOneItemToCart() { //Korisnik moze uspesno da doda jedan proizvod u korpu
+    @Test (priority = 20) //Priority is used to define which test should run first and which should run later
+    public void userCanAddOneItemToCart() {
         homePage.clickProductsButton();
         productsPage.inputProductName("Blue Top");
         productsPage.clickSearchButton();
@@ -20,7 +20,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (priority = 30)
-    public void userCanAddMoreThanOneItemToCart() { //Korisnik moze uspesno da doda jos jedan proizvod u korpu
+    public void userCanAddMoreThanOneItemToCart() {
         homePage.clickProductsButton();
         productsPage.inputProductName("Sleeveless Dress");
         productsPage.clickSearchButton();
@@ -32,7 +32,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (priority = 10)
-    public void userCanRemoveItemFromTheCart() throws InterruptedException { //Korisnik moze da oukloni jedan proizvod iz korpe
+    public void userCanRemoveItemFromTheCart() throws InterruptedException {
         homePage.clickOnSignupLogin();
         loginPage.inputLoginEmail("janedoeqa26@gmail.com");
         loginPage.inputLoginPassword("Testqa91!");
@@ -49,7 +49,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (priority = 40)
-    public void userCanProceedToCheckout() throws InterruptedException { //KOrisnik nastavlja ka placanju
+    public void userCanProceedToCheckout() throws InterruptedException {
         Thread.sleep(2000);
         cartPage.clickProceedToCheckoutButton();
         cartPage.clickPlaceOrderButton();

@@ -7,15 +7,15 @@ import org.openqa.selenium.WebElement;
 
 public class CartPage {
 
-    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
     WebDriver driver;
 
+    // Constructor used to initialize the WebDriver for this page
     public CartPage(WebDriver driver) {
 
         this.driver = driver;
     }
 
-    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
+    // Locators used to find web elements so that Selenium can interact with them
     public WebElement getRemoveItem() {
         return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[6]/a"));
     }
@@ -50,26 +50,7 @@ public class CartPage {
     }
 
 
-    //Asertacije nam sluze da bismo proverili validnost testova
-    public WebElement getProductInCart() {
-        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[2]/h4/a")); //Potvrda da je proizvod u korpi
-    }
-    public WebElement getEmptyCartMessage() {
-        return driver.findElement(By.xpath("//p[@class='text-center']/b")); //Potvrda da je korpa prazna
-    }
-    public WebElement getOrderPlacedMessage() {
-        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b")); //Potvrda da je uspesno izvrsena porudzbina
-    }
-    public WebElement getTotal() {
-        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/thead/tr/td[5]"));
-    }
-
-
-
-
-
-    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
-    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
+    // Methods used to perform actions on page elements
     public void clickRemoveItemButton() {
         getRemoveItem().click();
     }
@@ -78,7 +59,6 @@ public class CartPage {
         getProceedToCheckoutButton().click();
     }
 
-    //Metoda za scroll stranice do elementa gde se nalazi lokator
     public void clickPlaceOrderButton() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",
@@ -109,5 +89,33 @@ public class CartPage {
     public void clickPayAndConfirmOrderButton() {
         getPayAndConfirmOrder().click();
     }
+
+
+    // Assertions are placed in test classes to verify that the expected result is achieved
+
+    // Verify that product is in the cart
+    public WebElement getProductInCart() {
+        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/tbody/tr/td[2]/h4/a"));
+    }
+
+    // Verify that Cart is empty message is displayed
+    public WebElement getEmptyCartMessage() {
+        return driver.findElement(By.xpath("//p[@class='text-center']/b"));
+    }
+
+    // Verify that Order is placed message is displayed
+    public WebElement getOrderPlacedMessage() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div/h2/b"));
+    }
+
+    // Verify that Total is displayed
+    public WebElement getTotal() {
+        return driver.findElement(By.xpath("/html/body/section/div/div[2]/table/thead/tr/td[5]"));
+    }
+
+
+
+
+
 
 }

@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
 
 public class RegistrationTest extends BaseTest {
 
-    @Test (priority = 10) //Priority oznacava po kom prioritetu ce se testovi izvrsavati
-    public void userCanOpenSignupPage() { //Test da korisnik moze da otvori SignupPage
+    @Test (priority = 10) //Priority is used to define which test should run first and which should run later
+    public void userCanOpenSignupPage() {
         homePage.clickOnSignupLogin();
 
     }
 
     @Test (priority = 20)
-    public void userCanStartRegistration() throws InterruptedException { //Test da korisnik moze da se registruje
+    public void userCanStartRegistration() throws InterruptedException {
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26@gmail.com");
@@ -42,7 +42,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test (priority = 30)
-    public void userCannotRegisterWithExistingEmail() { //Test da korisnik ne moze da se uloguje sa vec registrovanim mejlom
+    public void userCannotRegisterWithExistingEmail() {
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26@gmail.com");
@@ -53,7 +53,7 @@ public class RegistrationTest extends BaseTest {
     }
 
     @Test (priority = 40)
-    public void userCannotRegisterWithInvalidEmail() { //Test da korisnik ne moze da se uloguje sa nevalidnim mejlom
+    public void userCannotRegisterWithInvalidEmail() {
         homePage.clickOnSignupLogin();
         signupPage.enterName("Jane Doe");
         signupPage.enterEmail("janedoeqa26gmail.com");

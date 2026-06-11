@@ -7,14 +7,15 @@ import org.openqa.selenium.WebElement;
 
 public class ProductsPage {
 
-    //Ovde, u okviru klase, cuvam WebDriver koji dobijam kroz konstruktor kako bih mogla da pristupam elementima na stranici
+
     WebDriver driver;
 
+    // Constructor used to initialize the WebDriver for this page
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    //Za svaki element pravim lokator, pomocu getter metode pronalazim elemente
+    // Locators used to find web elements so that Selenium can interact with them
     public WebElement getSearchField() {
         return driver.findElement(By.id("search_product"));
     }
@@ -44,8 +45,7 @@ public class ProductsPage {
     }
 
 
-    //Napravila sam metode koje izvrsavaju akcije nad tim elementima (klik, unos podataka...)
-    //Na ovaj nacin su testovi pregledniji i laksi za odrzavanje
+    // Methods used to perform actions on page elements
     public void inputProductName(String productName) {
         getSearchField().clear();
         getSearchField().sendKeys(productName);
@@ -54,7 +54,6 @@ public class ProductsPage {
         getSearchButton().click();
     }
 
-    //Metoda za skroll stranice do elementa gde se nalazi lokator, konkretno u ovom slucaju reklama je blokirala mesto gde se isti nalazi
     public void clickViewProductButton() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",
